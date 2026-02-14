@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Garvita ❤️</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(to right,#ff758c,#ff7eb3);
+    font-family:Arial, sans-serif;
+    overflow:hidden;
+}
+
+/* Hint */
+.hint{
+    position:absolute;
+    top:18%;
+    text-align:center;
+    color:white;
+    animation:float 2s infinite;
+}
+
+.hint span{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.hint img{
+    width:80px;
+    margin-top:5px;
+}
+
+/* Floating animation */
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(10px);}
+    100%{transform:translateY(0);}
+}
+
+/* Container */
+.scene{
+    width:260px;
+    height:180px;
+    perspective:1000px;
+    cursor:pointer;
+    position:relative;
+    z-index:2;
+}
+
+/* Envelope */
+.envelope{
+    width:100%;
+    height:100%;
+    position:relative;
+    transform-style:preserve-3d;
+    transition:transform 1s;
+}
+
+/* Front + Back */
+.front,.back{
+    position:absolute;
+    width:100%;
+    height:100%;
+    backface-visibility:hidden;
+    border-radius:12px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:bold;
+    font-size:20px;
+}
+
+/* Front */
+.front{
+    background:#fff;
+    color:#ff4b6e;
+    border:2px solid #ff4b6e;
+}
+
+/* Back */
+.back{
+    background:#ffe3ea;
+    transform:rotateY(180deg);
+}
+
+/* Letter */
+.letter{
+    position:absolute;
+    width:220px;
+    height: fit-content;
+    background:white;
+    border-radius:10px;
+    top:20px;
+    left:250px;
+    padding:15px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+
+    transform:translateY(80px);
+    opacity:0;
+    transition:1s;
+    z-index:5;
+}
+
+/* Active Animation */
+.open .envelope{
+    transform:rotateY(3780deg);
+}
+
+.open .letter{
+    transform:translateY(-120px);
+    opacity:2;
+}
+
+/* Letter Text */
+.letter h3{
+    margin:0;
+    color:#ff4b6e;
+}
+
+.letter p{
+    font-size:14px;
+    margin-top:10px;
+    width: fit-content;
+    height: fit-content;
+}
+
+/* Back Button */
+.back-btn{
+    position:fixed;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    background:white;
+    color:#ff4b6e;
+    border:none;
+    padding:10px 22px;
+    border-radius:25px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    transition:0.3s;
+}
+
+.back-btn:hover{
+    background:#ff4b6e;
+    color:white;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Envelope -->
+<div class="scene" id="box">
+
+    <div class="letter">
+        <h3>To my dearest chotulal❤️</h3>
+        <p>
+            Tum meri life ka sabse  
+            special hissa ho 💖  <br><br>
+           Tumhare  bina kuch nhi hmerilife me har jgh sirf tum aur tum hi ho tumhare bina meri life me kuch h hi nhi tumhare janne se meri life ki sari importace goal aur khushi sb chal gai h ham tumhe din ke har ek sec me miss krte rehte h
+           <br><br>
+           Please jaan ek baar dubara mera hath thaam lo aise akela mt chodo 
+        </p>
+    </div>
+
+    <div class="envelope">
+
+        <div class="front">
+           💖MISHTU💖
+        </div>
+
+        <div class="back">
+            💌 With Love 💌
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Click Hint -->
+<div class="hint" id="hint">
+    <span>Click on me 👇</span><br>
+    
+</div>
+
+<!-- Back Button -->
+<button class="back-btn" onclick="goBack()">⬅ Back</button>
+
+
+<script>
+let box = document.getElementById("box");
+let hint = document.getElementById("hint");
+
+box.addEventListener("click",()=>{
+    box.classList.toggle("open");
+    hint.style.display="none";
+});
+
+function goBack(){
+   window.location.href="new.html";
+
+}
+</script>
+
+</body>
+</html>

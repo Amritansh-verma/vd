@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine Quiz ❤️</title>
+
+  <!-- React CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- Animate.css CDN -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+
+  <style>
+    .lock-bg {
+  position: fixed;
+  inset: 0;
+  background-image: url("bg.jpg"); /* yahan tumhari image */
+  background-size: cover;
+  background-position: center;
+  filter: blur(6px) brightness(0.6); /* halki dark + blur */
+  transform: scale(1); /* edges blur fix */
+  z-index: -1; /* content ke peeche */
+}
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      
+      color: rgb(255, 255, 255);
+    }
+
+    .quiz-container {
+      background: rgba(0, 0, 0, 0.342);
+      padding: 30px;
+      border-radius: 99px;
+      text-align: center;
+      width: 420px;
+    }
+
+    input {
+      padding: 10px;
+      border-radius: 6px;
+      border: none;
+      width: 80%;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      outline: none;
+    }
+
+    button {
+      padding: 8px 20px;
+      border: none;
+      border-radius: 6px;
+      background: #f43f5e;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #e11d48;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="lock-bg"></div> <!-- ye sabse pehle body ke andar lagao -->
+  
+  <div id="root"></div>       <!-- tumhara existing React content -->
+
+
+  
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState } = React;
+
+    function Quiz() {
+      const [answer, setAnswer] = useState("");
+      const [correct, setCorrect] = useState(false);
+      const [animateExit, setAnimateExit] = useState(false);
+
+      const checkAnswer = () => {
+        if (answer.toLowerCase() === "doctor") { // ✅ correct answer
+          setAnimateExit(true); // trigger exit animation
+          setTimeout(() => setCorrect(true), 1000); // after hinge finish
+        } else {
+          alert("Try again 😌");
+        }
+      };
+
+      if (correct) {
+         window.location.href = "loading 1.html"; 
+      }
+
+      return (
+        <div
+          className={`quiz-container animate__animated ${
+            animateExit ? "animate__hinge" : "animate__rubberBand"
+          }`}
+        >
+          <h1>Question:</h1>
+          <p><h3>Profession that you are going to persue in future?</h3></p>
+
+          <input 
+            type="text"
+            value={answer}
+            onChange={(e) => setAnswer(e.target.value)}
+            placeholder="Your answer..."
+          />
+
+          <br />
+          <button onClick={checkAnswer}>Submit</button>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<Quiz />);
+  </script>
+</body>
+</html>

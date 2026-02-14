@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Will You Be My Valentine?</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #ff758c, #ff7eb3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+      width: 320px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+
+    img {
+      width: 220px;
+      height: 220px;
+      border-radius: 10px;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      color: #ff4d6d;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #yesBtn {
+      background: #28a745;
+      color: white;
+    }
+
+    #noBtn {
+      background: #dc3545;
+      color: white;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- MAIN IMAGE -->
+    <img id="mainImg" src="im1.jpg" alt="proposal">
+
+    <h2>Will you be my Valentine my love? 💖</h2>
+    <p>And spend your life with me?</p>
+
+    <!-- BUTTONS -->
+    <button id="yesBtn">Yes ❤️</button>
+    <button id="noBtn">No 💔</button>
+
+  </div>
+
+
+  <script>
+
+    let noCount = 0;
+
+    const images = [
+      "im1.jpg",   // first image
+      "im2.jpg",   // after 1st no
+      "im3.jpg",   // after 2nd no
+      "im4.jpg"    // after 3rd no
+    ];
+
+    const mainImg = document.getElementById("mainImg");
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+
+
+    // YES BUTTON
+    yesBtn.addEventListener("click", function () {
+
+      alert("Yayyy! ❤️ I Love You So Much 😍");
+
+      document.body.innerHTML = `
+        <div style="text-align:center; color:white;">
+          <h1>Thank You ❤️</h1>
+          <p>You made my life beautiful 💖</p>
+          <p>Jldi call kro bhait nhi ho rha h hamse ab </p>
+        </div>
+      `;
+
+    });
+
+
+    // NO BUTTON
+    noBtn.addEventListener("click", function () {
+
+      noCount++;
+
+      if (noCount < 4) {
+        mainImg.src = images[noCount];
+      }
+
+      if (noCount === 3) {
+        setTimeout(function () {
+          alert("I respect your feelings and will always love u 💙 ");
+        }, 300);
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>

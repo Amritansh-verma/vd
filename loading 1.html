@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<title>Intro Video</title>
+
+<!-- Animate CSS -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+<style>
+
+body{
+    margin:0;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:rgb(255, 255, 255);
+}
+
+#box{
+    text-align:center;
+}
+
+video{
+    width:300px;
+    border-radius:15px;
+}
+
+</style>
+</head>
+
+<body class="animate__animated animate__zoomInDown">
+
+<div id="box" class="animate__animated">
+
+    <video id="myVideo" muted autoplay loop playsinline>
+        <source src="Loading.mp4" type="video/mp4">
+        Your browser does not support video.
+    </video>
+
+</div>
+
+
+<script>
+
+const video = document.getElementById("myVideo");
+
+/* Force play (fix autoplay block) */
+video.play().catch(()=>{
+    console.log("Autoplay blocked");
+});
+
+
+/* After 5 seconds */
+setTimeout(()=>{
+
+    const box = document.getElementById("box");
+
+    box.classList.add("animate__zoomOutDown");
+
+    /* After animation */
+    setTimeout(()=>{
+
+        window.location.href = "new.html";
+
+    },1000);
+
+},5000);
+
+</script>
+
+</body>
+</html>
